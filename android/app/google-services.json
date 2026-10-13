@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "311869191003",
+    "project_id": "prontoapp-85725",
+    "storage_bucket": "prontoapp-85725.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311869191003:android:85779ba42e3b1d3f5b207e",
+        "android_client_info": {
+          "package_name": "com.example.pronto_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311869191003-r24mpmhdib4993fq84u9hj6uo7pl0ge1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pronto_mobile",
+            "certificate_hash": "afc6712234ff6599315034d6b498a0d1c33fb4c5"
+          }
+        },
+        {
+          "client_id": "311869191003-klt8d7ictlpj4up2rn44u06tkc6u9ef3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQgup6YlLq_ttTjzzmpn2F5bV-EvrHMgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311869191003-klt8d7ictlpj4up2rn44u06tkc6u9ef3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
