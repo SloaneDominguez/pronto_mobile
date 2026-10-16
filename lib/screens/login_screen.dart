@@ -11,6 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final _authService = AuthService();
   bool _cargando = false;
   String? _error;
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  Future<void> _iniciarSesionConFacebook() async {
+  /*Future<void> _iniciarSesionConFacebook() async {
     setState(() {
       _cargando = true;
       _error = null;
@@ -52,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } finally {
       if (mounted) setState(() => _cargando = false); //[cite: 3]
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +126,60 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Colors.black87)), //[cite: 3]
                     const SizedBox(height: 32),
 
+                    // 1. Campo para Correo Electrónico
+                    TextField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        labelText: 'Correo electrónico',
+                        prefixIcon: Icon(Icons.email_outlined),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+// 2. Campo para Contraseña
+                    TextField(
+                      controller: passwordController,
+                      obscureText: true, // Oculta los caracteres
+                      decoration: const InputDecoration(
+                        labelText: 'Contraseña',
+                        prefixIcon: Icon(Icons.lock_outline),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+
+// 3. Botón clásico de Iniciar Sesión
+                    ElevatedButton(
+                      onPressed: () {
+                        // Aquí es donde agregaremos la lógica de Firebase en el siguiente paso
+                        // Por ahora solo capturamos los textos: emailController.text y passwordController.text
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize:
+                            const Size(double.infinity, 50), // Botón ancho
+                      ),
+                      child: const Text('Iniciar sesión'),
+                    ),
+                    const SizedBox(height: 24),
+
+                    const Center(child: Text('O ingresa con:')),
+                    const SizedBox(height: 16),
+
+// 4. Botón de Google (Mantenemos tu lógica actual)
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        // Aquí va la función que ya tenías para iniciar sesión con Google
+                      },
+                      icon: const Icon(Icons.g_mobiledata, size: 30),
+                      label: const Text('Continuar con Google'),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 50),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
                     // --- ZONA DE BOTONES / CARGA ---
                     if (_cargando)
                       const Column(
@@ -165,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 16),
 
                       // Botón de Facebook
-                      SizedBox(
+                      /*SizedBox(
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
@@ -185,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontWeight: FontWeight.bold)), //[cite: 3]
                           onPressed: _iniciarSesionConFacebook, //[cite: 3]
                         ),
-                      ),
+                      ),*/
                     ],
 
                     // --- ZONA DE ERRORES ---

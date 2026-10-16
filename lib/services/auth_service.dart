@@ -38,6 +38,20 @@ class AuthService {
     return _auth.currentUser;
   }
 
+  Future<User?> iniciarSesionConEmailYPassword(
+      String email, String password) async {
+    UserCredential credential = await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    if (credential.user != null) {
+      await _guardarUsuarioEnFirestore(
+          credential.user!, credential.user!.displayName);
+    }
+    return _auth.currentUser;
+  }
+
   Future<User?> iniciarSesionConGoogle() async {
     try {
       final googleSignIn = GoogleSignIn.instance;
